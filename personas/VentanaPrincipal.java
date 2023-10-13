@@ -120,11 +120,18 @@ public class VentanaPrincipal extends JFrame {
     }
 
     private void eliminarPersona() {
-        // Limpiar los campos de ingreso de texto
-        campoNombre.setText("");
-        campoApellidos.setText("");
-        campoTelefono.setText("");
-        campoDireccion.setText("");
+        int index = listaNombres.getSelectedIndex();
+        if (index != -1) {
+            // Eliminar la persona de la lista y del modelo
+            lista.eliminarPersona(index);
+            modelo.remove(index);
+            // Limpiar los campos de ingreso de texto
+            campoNombre.setText("");
+            campoApellidos.setText("");
+            campoTelefono.setText("");
+            campoDireccion.setText("");
+            
+        }
     }
 
     private void borrarLista() {
